@@ -1,7 +1,7 @@
-// TODO: Import API_ENDPOINT
+// DONE ✅  Import API_ENDPOINT
 import {API_ENDPOINT} from "./index.js";
 
-// TODO: Create the addNewBook function that takes in newTitle, newStart, and newEnd as arguments. Inside the function, create a POST request for the new book. Store the response as a JSON in a variable called newBook and return it at the end of the function.
+// DONE ✅ Create the addNewBook function that takes in newTitle, newStart, and newEnd as arguments. Inside the function, create a POST request for the new book. Store the response as a JSON in a variable called newBook and return it at the end of the function.
 export const addNewBook = async (newTitle, newStart, newEnd) => {
     const response = await fetch(`${API_ENDPOINT}/books`, {
       method: "POST",
@@ -16,9 +16,10 @@ export const addNewBook = async (newTitle, newStart, newEnd) => {
     });
     //   create a variable that will wait for the response in json format ✅
       const newBook = await response.json();
+      return newBook;
   };
 
-// TODO: Create the getBooks function that retrieves all of the books that have been saved to the back-end API
+// DONE ✅ Create the getBooks function that retrieves all of the books that have been saved to the back-end API
 export const getBooks = async  () => {
     const response = await fetch(`${API_ENDPOINT}/books`);
     const books = await response.json();
@@ -27,14 +28,14 @@ export const getBooks = async  () => {
 };
 
 
-// TODO: Create the updateBook function that takes the arguments id, newTitle, newStart, newEnd. Inside of the function, create a PUT request for the specified book to be updated. Return the status of the response at the end of the function.
+// DONE ✅  Create the updateBook function that takes the arguments id, newTitle, newStart, newEnd. Inside of the function, create a PUT request for the specified book to be updated. Return the status of the response at the end of the function.
 export const updateBook = async (id, newTitle, newStart, newEnd) => {
     const response = await fetch(`${API_ENDPOINT}/books/${id}`, {
         method: "PUT",
         body: JSON.stringify({
-            newTitle,
-            newStart,
-            newEnd
+            title: newTitle,
+            start: newStart,
+            end: newEnd
         }),
         headers: {
             "Content-Type": "application/json",
@@ -43,10 +44,10 @@ export const updateBook = async (id, newTitle, newStart, newEnd) => {
     return response.status;
 };
 
-// TODO: Create the deleteBook function that takes the id of the book to be deleted as an argument. Inside of the function, create a DELETE request for the specified book to be deleted. Return the status of the response at the end of the function.
+// DONE ✅  Create the deleteBook function that takes the id of the book to be deleted as an argument. Inside of the function, create a DELETE request for the specified book to be deleted. Return the status of the response at the end of the function.
 export const deleteBook = async (id) => {
     const response = await fetch(`${API_ENDPOINT}/books/${id}`, {
-        method: "DELETE"
+        method: "DELETE",
     });
     return response.status;
 };
