@@ -20,7 +20,7 @@ run the same command in the terminal 'frontend' directory. If you are asked to r
 
 this will run the frontend of the application on port:3001 ✅
 
-In your browser, navigate to this address: <code>http://localhost:3001/</code>
+In your browser, open [http://localhost:3000](http://localhost:3000)
 
 Welcome to Nick's bookshop! 🚀
 
