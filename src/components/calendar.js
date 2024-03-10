@@ -15,7 +15,7 @@ const CalendarComponent = ({events}) => {
           views={['month', 'week', 'day']}
           startAccessor="start"
           endAccessor="end"
-          style={{ height: 600 }}
+          style={{ height: 400 }}
       />
     </div>
   );
