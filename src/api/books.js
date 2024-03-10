@@ -16,6 +16,7 @@ export const addNewBook = async (newTitle, newStart, newEnd) => {
     });
     //   create a variable that will wait for the response in json format ✅
       const newBook = await response.json();
+      console.log(`${newTitle} added to the book list ✅`)
       return newBook;
   };
 
@@ -24,6 +25,7 @@ export const getBooks = async  () => {
     const response = await fetch(`${API_ENDPOINT}/books`);
     const books = await response.json();
 
+    console.log("Book list fetched ✅")
     return books;
 };
 
@@ -41,6 +43,7 @@ export const updateBook = async (id, newTitle, newStart, newEnd) => {
             "Content-Type": "application/json",
         },
     })
+    console.log(`Book updated: ${newTitle} ✅`)
     return response.status;
 };
 
@@ -48,6 +51,7 @@ export const updateBook = async (id, newTitle, newStart, newEnd) => {
 export const deleteBook = async (id) => {
     const response = await fetch(`${API_ENDPOINT}/books/${id}`, {
         method: "DELETE",
-    });
-    return response.status;
+      });
+      console.log(`Book with ID: ${id} deleted ✅`)
+      return response.status;
 };
